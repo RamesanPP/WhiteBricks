@@ -1,0 +1,166 @@
+{% load static %}
+
+
+<!DOCTYPE HTML>
+<html lang="zxx">
+
+<head>
+    <title>WhiteBricks | Account Profile</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords"
+        content="WhiteBricks, Real Estate, WhiteBricks Inc Pvt Ltd,Incorporated, Private, Limited, Property, on the go, Paying Guest, PG, cheap homes, cheap, availability, pg for students, find pg's nearby, find pg, location, houses, dorms, rent, for rent, guest, stay" />
+        <script>
+
+                function hideURLbar() {
+                    if (window.scrollY == 0) window.scrollTo(0,1);
+                }
+        </script>
+    <!-- //Meta tag Keywords -->
+
+    <!-- Custom-Files -->
+    <link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+    <!-- Bootstrap-Core-CSS -->
+    <link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+    <!-- Style-CSS -->
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <!-- Font-Awesome-Icons-CSS -->
+    <!-- //Custom-Files -->
+
+    <!-- Web-Fonts -->
+    <link
+        href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
+        rel="stylesheet">
+    <link
+        href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
+        rel="stylesheet">
+    <!-- //Web-Fonts -->
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <div class="container">
+            <div class="header d-lg-flex justify-content-between align-items-center py-2 px-sm-2 px-1">
+                <!-- logo -->
+                <div id="logo">
+                    <h1><a href="/pgfinder"><span class="text-wh">White</span>Bricks</a></h1>
+                </div>
+                <!-- //logo -->
+                <!-- nav -->
+                <div class="nav_w3ls ml-lg-5">
+                    <nav>
+                        <label for="drop" class="toggle">Menu</label>
+                        <input type="checkbox" id="drop" />
+                        <ul class="menu">
+                            <li><a href="/dbdata/addpg">Add PG</a></li>
+                            <li><a href="">Notifications</a></li>
+                            <li><a href="">My Listings</a></li>
+                            <li><a href="logout">Logout</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- //nav -->
+            </div>
+        </div>
+    </header>
+    <!-- //header -->
+
+    <!-- inner banner -->
+        <!-- banner -->
+    <div class="main-w3pvt  text-center" id="home">
+        <div class="container">
+            <div class="style-banner mx-auto">
+                <h3 class="text-wh font-weight-bold"><span>Welcome {{user.username}}</span></h3>
+                <h5 style="color: black;">Find Now</h5>
+                <!-- form -->
+                <div class="home-form-w3ls mt-5 pt-lg-4">
+                    <form action="search" method="get">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <select required="" class="form-control" name='hc_q' value='{{request.GET.hc_q}}'>
+                                        <option disabled selected>No. of People</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <select required="" class="form-control" name='city_q' value='{{request.GET.city_q}}'>
+                                        <option disabled selected>Location</option>
+                                        <option value="1">New York</option>
+                                        <option value="2">Boston</option>
+                                        <option value="3">Philadelphia</option>
+                                        <option value="4">Baltimore</option>
+                                        <option value="5">Washington</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" class="btn btn_apt" value="Find Here">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </form>
+                </div>
+                <!-- //form -->
+            </div>
+        </div>
+    </div>
+    <!-- //banner -->
+    <!-- //inner banner -->
+
+    
+        <!-- copyright -->
+        <div class="copyright-w3ls py-4">
+            <div class="container">
+                <div class="row">
+                    <!-- copyright -->
+                    <p class="col-lg-8 copy-right-grids text-wh text-lg-left text-center mt-lg-2">© 2019 WhiteBricks PGfinder. All
+                        Rights Reserved | Design by
+                        <a href="https://www.mashupstack.com/" target="_blank">Freshers Inc.</a>
+                    </p>
+                    <!-- //copyright -->
+                    <!-- social icons -->
+                    <div class="col-lg-4 w3social-icons text-lg-right text-center mt-lg-0 mt-3">
+                        <ul>
+                            <li>
+                                <a href="#" class="rounded-circle">
+                                    <span class="fa fa-facebook-f"></span>
+                                </a>
+                            </li>
+                            <li class="px-2">
+                                <a href="#" class="rounded-circle">
+                                    <span class="fa fa-google-plus"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="rounded-circle">
+                                    <span class="fa fa-twitter"></span>
+                                </a>
+                            </li>
+                            <li class="pl-2">
+                                <a href="#" class="rounded-circle">
+                                    <span class="fa fa-dribbble"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- //social icons -->
+                </div>
+            </div>
+        </div>
+        <!-- //copyright -->
+    
+    </body>
+    
+    </html>

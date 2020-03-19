@@ -1,0 +1,520 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE HTML>
+<html lang="zxx">
+
+<head>
+    <title>WhiteBricks PG Finder | Home</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords"
+        content="WhiteBricks, Real Estate, WhiteBricks Inc Pvt Ltd,Incorporated, Private, Limited, Property, on the go, Paying Guest, PG, cheap homes, cheap, availability, pg for students, find pg's nearby, find pg, location, houses, dorms, rent, for rent, guest, stay" />
+    <script>
+
+        function hideURLbar() {
+            if (window.scrollY == 0) window.scrollTo(0,1);
+        }
+    </script>
+    <!-- //Meta tag Keywords -->
+
+    <!-- Custom-Files -->
+    <link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+    <!-- Bootstrap-Core-CSS -->
+    <link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+    <!-- Style-CSS -->
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <!-- Font-Awesome-Icons-CSS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <!-- //Custom-Files -->
+
+    <!-- Web-Fonts -->
+    <link
+        href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
+        rel="stylesheet">
+    <link
+        href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
+        rel="stylesheet">
+    <!-- //Web-Fonts -->
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <div class="container">
+            <div class="header d-lg-flex justify-content-between align-items-center py-2 px-sm-2 px-1">
+                <!-- logo -->
+                <div id="logo">
+                    <h1><a href=""><span class="text-wh">White</span>Bricks</a></h1>
+                </div>
+                <!-- //logo -->
+                <!-- nav -->
+                <div class="nav_w3ls ml-lg-5">
+                    <nav>
+                        <label for="drop" class="toggle">Menu</label>
+                        <input type="checkbox" id="drop" />
+                        <ul class="menu">
+                            <li><a href="">Home</a></li>
+                            <li><a href="#find">Find a Place</a></li>
+                            <li>
+                                <!-- First Tier Drop Down -->
+                                <label for="drop-2" class="toggle toogle-2">Pages <span class="fa fa-angle-down"
+                                        aria-hidden="true"></span>
+                                </label>
+                                <a href="#">Pages <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                                <input type="checkbox" id="drop-2" />
+                                <ul>
+                                    <li><a href="#about" class="drop-text">About Us</a></li>
+                                    <li><a href="#services" class="drop-text">Access To</a></li>
+                                    <li><a href="#gallery" class="drop-text">Gallery</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#contact">Contact Us</a></li>
+                            {% if user.is_authenticated %}
+                            <li><a href="/dbdata/profile">Profile</a></li>
+                            <li><a href="/dbdata/logout">Logout</a></li>
+                            {% else %}
+                            <li><a href="/users/login">Login</a></li>
+                            <li><a href="/users/register">Register</a></li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+                <!-- //nav -->
+            </div>
+        </div>
+    </header>
+    <!-- //header -->
+
+    <!-- banner -->
+    <div class="main-w3pvt mian-content-wthree text-center" id="home">
+        <div class="container">
+            <div class="style-banner mx-auto">
+                <h3 class="text-wh font-weight-bold"><span>Find</span> Paying Guest Availabilities</h3>
+                <p class="mt-2 text-li" id="find" >Select Desired Location and HeadCount</p>
+                <!-- form -->
+                <div class="home-form-w3ls mt-5 pt-lg-4">
+                    <form action="#" method="get">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <select required="" class="form-control">
+                                        <option value="" disabled selected>No. of People</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <select required="" class="form-control">
+                                        <option value="" disabled selected>Location</option>
+                                        <option value="1">New York</option>
+                                        <option value="2">Boston</option>
+                                        <option value="3">Philadelphia</option>
+                                        <option value="4">Baltimore</option>
+                                        <option value="5">Washington</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn_apt">Find Here</button>
+                    </form>
+                </div>
+                <!-- //form -->
+            </div>
+        </div>
+    </div>
+    <!-- //banner -->
+
+    <!-- banner bottom -->
+    <section class="w3ls-bnrbtm py-5" id="about">
+        <div class="container py-xl-5 py-lg-3">
+            <h3 class="title-w3 mb-md-5 mb-4 text-center text-bl font-weight-bold">Welcome To White<span>Bricks</span></h3>
+            <div class="row">
+                <div class="col-lg-6 text-center">
+                    <img src="{% static 'images/about.jpg' %}" alt="about" class="img-fluid" style="height: 450px" />
+                </div>
+                <div class="col-lg-6 pr-xl-5 mt-xl-4 mt-lg-0 mt-4">
+                    <h3 class="title-sub mb-4">The best place to find PG Stays <span>based on your convenience.</span></h3>
+                    <p class="sub-para">Outsider to the city? Worry not! WhiteBricks can help you choose the best and most convenient place for you to stay. We help you get the most affordable and suitable places from a vast variety of realtors.</p>
+                    <p class="sub-para pt-4 mt-4 border-top">Our services spread across the Pacific NorthWest region of the United States, so that you can stay as Paying Guests at your desired place of choice, even in major cities including New York, Washington and Boston.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //banner bottom -->
+
+    <!-- services -->
+    <div class="w3pvtits-services py-5" id="services">
+        <div class="container py-xl-5 py-lg-3">
+            <h3 class="title-w3 mb-2 text-center text-wh font-weight-bold">We Provide Access to the <span>Best Homes</span>
+            </h3>
+            <p class="text-li text-center title-w3 mb-md-5 mb-4">Start living the way you want!</p>
+            <div class="row w3pvtits-services-row text-center pt-4">
+                <div class="col-lg-4">
+                    <div class="w3pvtits-services-grids">
+                        <div class="icon-effect-wthree">
+                            <span class="fa fa-home ser-icon"></span>
+                        </div>
+                        <h4 class="text-bl my-4">Houses</h4>
+                        <p class="text-left">Choose from various houses and villas. Best for localised communities within a larger city, town, suburb or rural area. Enjoy a friendly neighbourhood.</p>
+                        <a class="service-btn btn mt-xl-5 mt-4" href="#find">Find Now<span
+                                class="fa fa-long-arrow-right ml-2"></span></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 serv-w3mk my-lg-0 my-5">
+                    <div class="w3pvtits-services-grids">
+                        <div class="icon-effect-wthree">
+                            <span class="fa fa-building ser-icon"></span>
+                        </div>
+                        <h4 class="text-bl my-4">Apartments </h4>
+                        <p class="text-left"> Select from the best apartments and condominiums in the city. We even provide flats inside major city points, if you want to get close to action.</p>
+                        <a class="service-btn btn mt-xl-5 mt-4" href="#find">Find Now<span
+                                class="fa fa-long-arrow-right ml-2"></span></a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="w3pvtits-services-grids">
+                        <div class="icon-effect-wthree">
+                            <span class="fa fa-university ser-icon"></span>
+                        </div>
+                        <h4 class="text-bl my-4">Hostels </h4>
+                        <p class="text-left">The best option for students and tempory tavellers are of course, hostels and dormitories, which we also happen to provide immense access to.</p>
+                        <a class="service-btn btn mt-xl-5 mt-4" href="#find">Find Now<span
+                                class="fa fa-long-arrow-right ml-2"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="{% static 'images/img.png' %}" alt="services" class="img-fluid img-posi-w3pvt" />
+    </div>
+    <!-- //services -->
+
+    <!-- places -->
+    <section class="branches py-5" id="places">
+        <div class="container py-xl-5 py-lg-3">
+            <h3 class="title-w3 mb-2 text-center text-bl font-weight-bold">Most Popular <span>Places</span></h3>
+            <p class="text-center title-w3 mb-md-5 mb-4">Best out of all!</p>
+            <div class="row branches-position pt-4">
+                <div class="col-lg-3 col-sm-6 place-w3">
+                    <!-- branch-img -->
+                    <div class="team-img team-img-1">
+                        <div class="team-content">
+                            <h4 class="text-wh">Washington D.C.</h4>
+                            <p class="team-meta">The District</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- / branch-img -->
+                <div class="col-lg-3 col-sm-6 place-w3 mt-sm-0 mt-4">
+                    <!-- team-img -->
+                    <div class="team-img team-img-2">
+                        <div class="team-content">
+                            <h4 class="text-wh">New York City</h4>
+                            <p class="team-meta">The Big Apple</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.branch-img -->
+                <div class="col-lg-3 col-sm-6 place-w3 mt-lg-0 mt-4">
+                    <!-- team-img -->
+                    <div class="team-img team-img-3">
+                        <div class="team-content">
+                            <h4 class="text-wh">Boston</h4>
+                            <p class="team-meta">Cradle of Liberty</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.branch-img -->
+                <div class="col-lg-3 col-sm-6 place-w3 mt-lg-0 mt-4">
+                    <!-- team-img -->
+                    <div class="team-img team-img-4">
+                        <div class="team-content">
+                            <h4 class="text-wh">Philadelphia</h4>
+                            <p class="team-meta">The City of Brotherly Love</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //places -->
+
+    <!-- stats section -->
+    <div class="middlesection-w3pvt py-5 mt-5" id="facts">
+        <div class="container py-xl-5 py-lg-3">
+            <div class="offset-lg-4 offset-md-2 offset-sm-1 left-build-wthree aboutright-w3pvtwthree">
+                <h3 class="title-w3-2 title-w3 mb-md-5 mb-4 font-weight-bold">Some Statistical Facts</h3>
+                <div class="row">
+                    <div class="col-sm-4 w3layouts_stats_left w3_counter_grid">
+                        <p class="counter">1680</p>
+                        <p class="para-text-w3ls text-li">Professional Agents</p>
+                    </div>
+                    <div class="col-sm-4 w3layouts_stats_left w3_counter_grid2 my-sm-0 my-2">
+                        <p class="counter">1200+</p>
+                        <p class="para-text-w3ls text-li">Available Locations</p>
+                    </div>
+                    <div class="col-sm-4 w3layouts_stats_left w3_counter_grid1">
+                        <p class="counter">36</p>
+                        <p class="para-text-w3ls text-li">Awards Won</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="property-paper">
+            <img src="{% static 'images/img3.png' %}" alt="" class="img-fluid agents-w3" />
+        </div>
+    </div>
+    <!-- //stats section -->
+
+    <!-- gallery -->
+    <div class="gallery pb-5" id="gallery">
+        <div class="container py-xl-5 py-lg-3">
+            <h3 class="title-w3 mb-2 text-center text-bl font-weight-bold">Our <span>Gallery</span></h3>
+            <p class="text-center title-w3 mb-md-5 mb-4">Some of our promising places.</p>
+            <div class="row news-grids text-center no-gutters">
+                <div class="col-md-4 gal-img">
+                    <a href="#gal1"><img src="{% static 'images/g1.jpg' %}" alt="Gallery Image" class="img-fluid"></a>
+                </div>
+                <div class="col-md-4 gal-img">
+                    <a href="#gal2"><img src="{% static 'images/g2.jpg' %}" alt="Gallery Image" class="img-fluid"></a>
+                </div>
+                <div class="col-md-4 gal-img">
+                    <a href="#gal3"><img src="{% static 'images/g3.jpg' %}" alt="Gallery Image" class="img-fluid"></a>
+                </div>
+            </div>
+            <div class="row news-grids text-center no-gutters">
+                <div class="col-md-4 gal-img">
+                    <a href="#gal4"><img src="{% static 'images/g4.jpg' %}" alt="Gallery Image" class="img-fluid"></a>
+                </div>
+                <div class="col-md-4 gal-img">
+                    <a href="#gal5"><img src="{% static 'images/g5.jpg' %}" alt="Gallery Image" class="img-fluid"></a>
+                </div>
+                <div class="col-md-4 gal-img">
+                    <a href="#gal6"><img src="{% static 'images/g6.jpg' %}" alt="Gallery Image" class="img-fluid"></a>
+                </div>
+            </div>
+            <!-- gallery popups -->
+            <!-- popup-->
+            <div id="gal1" class="pop-overlay animate">
+                <div class="popup">
+                    <img src="{% static 'images/g1.jpg' %}" alt="Popup Image" class="img-fluid" />
+                    <p class="mt-4">Get your key to HAPPINESS!</p>
+                    <a class="close" href="#gallery">&times;</a>
+                </div>
+            </div>
+            <!-- //popup -->
+            <!-- popup-->
+            <div id="gal2" class="pop-overlay animate">
+                <div class="popup">
+                    <img src="{% static 'images/g2.jpg' %}" alt="Popup Image" class="img-fluid" />
+                    <p class="mt-4">Singapore. The Lion City</p>
+                    <a class="close" href="#gallery">&times;</a>
+                </div>
+            </div>
+            <!-- //popup -->
+            <!-- popup-->
+            <div id="gal3" class="pop-overlay animate">
+                <div class="popup">
+                    <img src="{% static 'images/g3.jpg' %}" alt="Popup Image" class="img-fluid" />
+                    <p class="mt-4">Yay! Finally, My work is done!</p>
+                    <a class="close" href="#gallery">&times;</a>
+                </div>
+            </div>
+            <!-- //popup3 -->
+            <!-- popup-->
+            <div id="gal4" class="pop-overlay animate">
+                <div class="popup">
+                    <img src="{% static 'images/g4.jpg' %}" alt="Popup Image" class="img-fluid" />
+                    <p class="mt-4">Some rich guy's house.</p>
+                    <a class="close" href="#gallery">&times;</a>
+                </div>
+            </div>
+            <!-- //popup -->
+            <!-- popup-->
+            <div id="gal5" class="pop-overlay animate">
+                <div class="popup">
+                    <img src="{% static 'images/g5.jpg' %}" alt="Popup Image" class="img-fluid" />
+                    <p class="mt-4">Again some rich guy's house.</p>
+                    <a class="close" href="#gallery">&times;</a>
+                </div>
+            </div>
+            <!-- //popup -->
+            <!-- popup-->
+            <div id="gal6" class="pop-overlay animate">
+                <div class="popup">
+                    <img src="{% static 'images/g6.jpg' %}" alt="Popup Image" class="img-fluid" />
+                    <p class="mt-4">Buildings Everywhere.</p>
+                    <a class="close" href="#gallery">&times;</a>
+                </div>
+            </div>
+            <!-- //popup -->
+            <!-- //gallery popups -->
+        </div>
+    </div>
+    <!-- //gallery -->
+
+    <!-- testimonials -->
+    <section class="clients py-5 text-center" id="testi">
+        <div class="container py-xl-5 py-lg-3">
+            <h3 class="title-w3 mb-2 text-center text-wh font-weight-bold">What Our <span>Customers</span> Says</h3>
+            <p class="text-center text-li title-w3 mb-sm-5 mb-4">Happy People!</p>
+            <div class="feedback-info">
+                <div class="feedback-top">
+                    <p>I was a newcomer to the city, and had trouble finding a place to stay. But thanks
+                        to WhiteBricks, I was able to get the most appropriate place to live near my campus
+                        and also the best prices out there which makes it a whole lot easier.! </p>
+                    <img src="{% static 'images/te1.jpg' %}" alt=" " class="img-fluid rounded-circle mt-5">
+                    <h4 class="mt-4 text-wh font-weight-bold mb-4">Mary Jane</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //testimonials -->
+
+
+    <!-- contact-->
+    <section class="contact py-5" id="contact">
+        <div class="container py-xl-5 py-lg-3">
+            <h3 class="title-w3 mb-2 text-center text-wh font-weight-bold">Contact <span>Us</span></h3>
+            <p class="text-center text-li title-w3 mb-md-5 mb-4">How can we be of help?</p>
+            <div class="contact_grid_right pt-4">
+                {% if messages %}\
+                    {% for message in messages %}
+                        <div class="alert alert-{{message.tags}}">
+                            {{message}}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }} 
+                    <button class="form-control btn" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- //Contact -->
+
+    <!-- footer -->
+    <footer class="py-5">
+        <div class="container py-xl-4 py-lg-3">
+            <div class="row footer-grids">
+                <div class="col-lg-2 col-6 footer-grid">
+                    <h3 class="mb-sm-4 mb-3 pb-lg-3">Home</h3>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="">Index</a>
+                        </li>
+                        <li>
+                            <a href="#about">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#services">Services</a>
+                        </li>
+                        <li>
+                            <a href="#gallery">Gallery</a>
+                        </li>
+                        <li>
+                            <a href="#contact">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6 footer-grid">
+                    <h3 class="mb-sm-4 mb-3 pb-lg-3"> Company</h3>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#find">Find a Place</a>
+                        </li>
+                        <li>
+                            <a href="#places">Popular Places</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6 footer-grid footer-contact mt-lg-0 mt-4">
+                    <h3 class="mb-sm-4 mb-3 pb-lg-3"> Contact Us</h3>
+                    <ul class="list-unstyled">
+                        <li>
+                            +01(24) 8543 8088
+                        </li>
+                        <li>
+                            <a href="mailto:whitebricksinc.pg@gmail.com">whitebricksinc.pg@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6 footer-grid text-lg-right">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#facts">Statistical Facts</a>
+                        </li>
+                        <li>
+                            <a href="#testi">Reviews</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 footer-grid mt-lg-0 mt-4">
+                    <div class="footer-logo">
+                        <h2 class="text-lg-center text-center">
+                            <a class="logo text-wh font-weight-bold" href="/pgfinder"><span
+                                    class="text-bl">White</span>Bricks</a>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- //footer -->
+    <!-- copyright -->
+    <div class="copyright-w3ls py-4">
+        <div class="container">
+            <div class="row">
+                <!-- copyright -->
+                <p class="col-lg-8 copy-right-grids text-wh text-lg-left text-center mt-lg-2">© 2019 WhiteBricks PGfinder. All
+                    Rights Reserved | Design by
+                    <a href="https://www.mashupstack.com/" target="_blank">Freshers Inc.</a>
+                </p>
+                <!-- //copyright -->
+                <!-- social icons -->
+                <div class="col-lg-4 w3social-icons text-lg-right text-center mt-lg-0 mt-3">
+                    <ul>
+                        <li>
+                            <a href="#" class="rounded-circle">
+                                <span class="fa fa-facebook-f"></span>
+                            </a>
+                        </li>
+                        <li class="px-2">
+                            <a href="#" class="rounded-circle">
+                                <span class="fa fa-google-plus"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="rounded-circle">
+                                <span class="fa fa-twitter"></span>
+                            </a>
+                        </li>
+                        <li class="pl-2">
+                            <a href="#" class="rounded-circle">
+                                <span class="fa fa-dribbble"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //social icons -->
+            </div>
+        </div>
+    </div>
+    <!-- //copyright -->
+    <!-- move top icon -->
+    <a href="#home" class="move-top text-center">
+        <span class="fa fa-angle-double-up" aria-hidden="true"></span>
+    </a>
+    <!-- //move top icon -->
+
+</body>
+
+</html>
