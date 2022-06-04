@@ -4,7 +4,7 @@
 Done in Python using Django framework.
 Done as the Final Project for Python-Django Full-Stack Development course from MashupStack.
 
-======
+
 Django
 ======
 
